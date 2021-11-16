@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.gms.google-services'
+
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.maxprocess.maxservices"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "0.1 Beta"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "API_VERSION", "\"-hml\""
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            buildConfigField "String", "API_VERSION", ""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    implementation project(":core")
+    implementation project(":feature:splash")
+    implementation project(":feature:login")
+    implementation project(":feature:trocarsenha")
+    implementation project(":feature:registro")
+    implementation project(":feature:sincronizacao")
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation kotlinLibrary.stdlib
+
+    implementation library.fragmentKtx
+    testImplementation library.jUnitTest
+    implementation library.lifecycleExtension
+    implementation library.liveDataKtx
+    implementation library.viewModelKtx
+    implementation library.constraintlayout
+    implementation library.appCompat
+    implementation library.coreKtx
+
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    api firebase.analytics
+
+    implementation daggerHilt.main
+    kapt daggerHilt.androidCompiler
+    kapt daggerHilt.compiler
+    implementation daggerHilt.viewModel
+    implementation library.navFragment
+    implementation library.navFragmentKtx
+    implementation library.locationServices
+
+    implementation database.room
+    kapt database.roomCompiler
+    implementation database.roomKtx
+
+}
