@@ -53,7 +53,7 @@
   - ViewModel - Suporte de dados relacionado à UI, consciente do ciclo de vida.
   - Room - construir banco de dados.
 - Arquitetura
-  - MVVM (Declarative View - ViewModel - Model
+  - MVVM (Declarative View - ViewModel - Model)
 - Material Design & Animações
 
 ### Linguagens usada
