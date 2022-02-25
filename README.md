@@ -44,8 +44,12 @@
 <p align="center">
 <img src="/images/view_dem.gif" width="32%"/>
 <img src="/images/view_demo.gif" width="32%"/>
+  
+Criei este aplicativo para praticar o back-end do Mobile
 </p>
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Tecnologias usadas
 
 - Hilt para injeção de dependência
 - JetPack
@@ -60,7 +64,7 @@
 
 * [Kotlin](https://kotlinlang.org/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 
 <!-- LICENSE -->
@@ -82,7 +86,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 
 
