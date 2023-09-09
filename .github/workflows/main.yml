@@ -69,23 +69,22 @@ jobs:
          with:
            tag_name: "v${{ github.event.inputs.version }}"
            release_name: "v${{ github.event.inputs.version }}"
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v4
-        with:
-          configuration: "configs/configuration_repo.json"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
-        uses: mikepenz/action-gh-release@v1
-        with:
-          body: ${{steps.github_release.outputs.changelog}}
-          prerelease: ${{ contains(github.ref, '-rc') || contains(github.ref, '-b') || contains(github.ref, '-a') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       - name: Checkout
+         uses: actions/checkout@v4
+       - name: Build Changelog
+         id: github_release
+         uses: mikepenz/release-changelog-builder-action@v4
+         with:
+           configuration: "configs/configuration_repo.json"
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       - name: Create Release
+         uses: mikepenz/action-gh-release@v1
+         with:
+           body: ${{steps.github_release.outputs.changelog}}
+           prerelease: ${{ contains(github.ref, '-rc') || contains(github.ref, '-b') || contains(github.ref, '-a') }}
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        - name: Upload Release AAB
          id: upload_release_asset
          uses: actions/upload-release-asset@v1.0.1
@@ -94,6 +93,6 @@ jobs:
          with:
            upload_url: ${{ steps.create_release.outputs.upload_url }}
            asset_path: aab/app-release.aab
-           asset_name: ${{ github.event.inputs.file_name }}_v${{ github.event.inputs.version }}.aab
+           asset_name: ${{ github.event.repository.name }}.aab
            asset_content_type: application/zip
        - run: echo "Upload returned with status=${{ job.status }}."        
