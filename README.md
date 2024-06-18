@@ -51,7 +51,7 @@ Criei este aplicativo para praticar o back-end do Mobile
 
 ## Tecnologias usadas
 
-- Hilt para injeção de dependência
+- Hilt para injeção de independência
 - JetPack
   - Compose - Um KIT de ferramentas morderno para a construção de interface do Android nativa.
   - ViewModel - Suporte de dados relacionado à UI, consciente do ciclo de vida.
